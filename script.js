@@ -16,10 +16,16 @@ createApp({
           console.log(this.randomEmails)
         }
       ) 
+    },
+    printEmail(){
+      const emails = setInterval( () => {
+        this.getRandomEmail();
+        if (this.randomEmails.length === 10) clearInterval(emails)
+      }, 150)
     }
   },
-  mounted(){
-    this.getRandomEmail()
+  created(){
+    this.printEmail() 
   }
 }).mount('#app')
 
