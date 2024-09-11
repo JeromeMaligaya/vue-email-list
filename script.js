@@ -4,7 +4,7 @@ createApp({
   data() {
     return {
       apiUrl: 'https://flynn.boolean.careers/exercises/api/random/mail',
-      randomEmails: []
+      randomEmails: [],
     }
   },
   methods: {
@@ -12,7 +12,7 @@ createApp({
       axios.get(this.apiUrl)
         .then( response => {
           email = response.data.response;
-          this.randomEmails.push({email});
+          this.randomEmails.push({response: email, success: true});
           console.log(this.randomEmails)
         }
       ) 
